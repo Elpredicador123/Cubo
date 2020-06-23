@@ -1,0 +1,57 @@
+body{
+	height: 10vh;
+}
+.container{
+	display: block;
+	padding: 2em;
+	perspective: 1000px;
+	margin: 10% auto;
+	width: 300px;
+}
+.cubo{
+	transform-style: preserve-3d;
+	height: 300px;
+	width: 300px;
+	animation-name: rotacion;
+	animation-duration: 10s;
+}
+.cara{
+	position: absolute;
+	height: 95%;
+	width: 95%;
+	box-shadow: 0 0 0 5px  black;
+	background-size: 100% 100%;
+	background-position: center;
+}
+
+.en{
+	background-image: url(img/1.JPG);
+	transform: translateZ(150px);
+}
+.at{
+	background-image: url(img/2.JPG);
+	transform: translateZ(-150px);
+}
+.ar{
+	background-image: url(img/3.JPG);
+	transform: translateY(-150px) rotateX(90deg);
+}
+.ab{
+	background-image: url(img/4.JPG);
+	transform: translateY(150px) rotateX(90deg);
+}
+.iz{
+	background-image: url(img/5.JPG);
+	transform: translateX(-150px) rotateY(90deg);
+}
+.de{
+	background-image: url(img/5.JPG);
+	transform: translateX(150px) rotateY(90deg);
+}
+input[name="hola"]:checked ~.container .cubo{
+	animation-play-state: paused;
+}
+@keyframes rotacion {
+  0% { transform: rotateY(0deg) rotateX(0deg); }
+  100% { transform: rotateY(360deg) rotateX(360deg); }
+}
